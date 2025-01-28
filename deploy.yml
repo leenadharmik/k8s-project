@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: landdeploy
+
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: landpod
+
+
+  template:
+    metadata:
+      name: landpod
+      labels:
+        name: landpod
+
+
+    spec:
+      containers:
+        - name: landmark-1
+          image: leenadharmik/springboot:1.1
+          ports:
+            - containerPort: 8080
